@@ -25,7 +25,7 @@ const IFACE_CLASS = {
 function USB(vid, pid){
 
   if (!usb) {
-    usb = require('usb');
+    usb = require('usb').usb;
   }
 
   EventEmitter.call(this);
@@ -67,7 +67,7 @@ function USB(vid, pid){
  */
 USB.findPrinter = function(){
   if (!usb) {
-    usb = require('usb');
+    usb = require('usb').usb;
   }
   return usb.getDeviceList().filter(function(device){
     try{
